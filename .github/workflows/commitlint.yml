@@ -3,7 +3,7 @@ on: pull_request
 
 jobs:
   commitlint:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: wagoid/commitlint-github-action@v6
