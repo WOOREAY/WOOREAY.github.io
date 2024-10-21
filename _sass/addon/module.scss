@@ -4,10 +4,13 @@
 
 /* ---------- scss placeholder --------- */
 
+
+@use 'variables' as variables;
+
 %heading {
   color: var(--heading-color);
   font-weight: 400;
-  font-family: $font-family-heading;
+  font-family: variables.$font-family-heading;
   scroll-margin-top: 3.5rem;
 }
 
@@ -82,7 +85,7 @@
 }
 
 %rounded {
-  border-radius: $radius-lg;
+  border-radius: variables.$radius-lg;
 }
 
 %img-caption {

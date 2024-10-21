@@ -2,6 +2,9 @@
   Post-specific style
 */
 
+@use 'addon/variables' as variables;
+@use 'addon/module' as module;
+
 %btn-post-nav {
   width: 50%;
   position: relative;
@@ -173,12 +176,12 @@ header {
     }
 
     &:first-child {
-      border-radius: $radius-lg 0 0 $radius-lg;
+      border-radius: variables.$radius-lg 0 0 variables.$radius-lg;
       left: 0.5px;
     }
 
     &:last-child {
-      border-radius: 0 $radius-lg $radius-lg 0;
+      border-radius: 0 variables.$radius-lg variables.$radius-lg 0;
       right: 0.5px;
     }
   }
@@ -299,7 +302,7 @@ header {
   top: 0;
   z-index: 1;
   margin: 0 -1rem;
-  height: $topbar-height;
+  height: variables.$topbar-height;
   background: var(--main-bg);
   border-bottom: 1px solid var(--main-border-color);
   transition: all 0.2s ease-in-out;
@@ -315,7 +318,7 @@ header {
   }
 
   &.invisible {
-    top: -$topbar-height;
+    top: - variables.$topbar-height;
     transition: none;
   }
 }
@@ -323,11 +326,11 @@ header {
 #toc-solo-trigger {
   color: var(--text-muted-color);
   border-color: var(--btn-border-color);
-  border-radius: $radius-lg;
+  border-radius: variables.$radius-lg;
 
   .label {
     font-size: 1rem;
-    font-family: $font-family-heading;
+    font-family: variables.$font-family-heading;
   }
 
   &:hover {
@@ -339,7 +342,7 @@ header {
 @mixin slide-in {
   from {
     opacity: 0.7;
-    transform: translateY(-$topbar-height);
+    transform: translateY(- variables.$topbar-height);
   }
 
   to {
@@ -355,7 +358,7 @@ header {
   }
 
   100% {
-    transform: translateY(-$topbar-height);
+    transform: translateY(- variables.$topbar-height);
     opacity: 0;
   }
 }
@@ -383,10 +386,10 @@ header {
 
   border-color: var(--toc-popup-border-color);
   border-width: 1px;
-  border-radius: $radius-lg;
+  border-radius: variables.$radius-lg;
   color: var(--text-color);
   background: var(--main-bg);
-  margin-top: $topbar-height;
+  margin-top: variables.$topbar-height;
   min-width: 20rem;
   font-size: 1.05rem;
 
@@ -405,7 +408,7 @@ header {
   }
 
   @media all and (min-width: 850px) {
-    left: $sidebar-width;
+    left: variables.$sidebar-width;
   }
 
   .header {
@@ -418,7 +421,7 @@ header {
     border-bottom: 1px solid var(--main-border-color);
 
     .label {
-      font-family: $font-family-heading;
+      font-family: variables.$font-family-heading;
     }
   }
 
@@ -480,8 +483,8 @@ header {
 
   #toc-popup-content {
     overflow: auto;
-    max-height: calc(100vh - 4 * $topbar-height);
-    font-family: $font-family-heading;
+    max-height: calc(100vh - 4 * variables.$topbar-height);
+    font-family: variables.$font-family-heading;
     margin-bottom: -$curtain-height;
   }
 }
@@ -490,7 +493,7 @@ header {
 
 #related-posts {
   > h3 {
-    @include label(1.1rem, 600);
+    @include module.label(1.1rem, 600);
   }
 
   time {
@@ -531,7 +534,7 @@ header {
 }
 
 .share-label {
-  @include label(inherit, 400, inherit);
+  @include module.label(inherit, 400, inherit);
 
   &::after {
     content: ':';
