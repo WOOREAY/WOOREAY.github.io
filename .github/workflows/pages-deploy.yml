@@ -44,6 +44,9 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
+      
+      - name: Install dependencies
+        run: gem install jekyll&&gem install bundle&& bundle install
 
       - name: Build site
         run: jekyll build --destination _site
