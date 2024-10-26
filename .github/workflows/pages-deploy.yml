@@ -40,10 +40,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.3
-          bundler-cache: true
+        run: sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev&&sudo apt-get install -y ruby-full
       
       - name: Install dependencies
         run: gem install jekyll&&gem install bundle&& bundle install
