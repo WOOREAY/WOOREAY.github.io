@@ -4,6 +4,21 @@ on:
   push:
     branches:
       - main  # 替换为你的主分支名称，例如 master
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
+  workflow_dispatch:
+    
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+      
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -25,7 +40,7 @@ jobs:
 
       - name: Build the site
         run: |
-          bundle exec jekyll build
+          bundle exec jekyll build -d "_site${{ steps.pages.outputs.base_path }}"
       
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
