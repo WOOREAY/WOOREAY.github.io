@@ -40,13 +40,16 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Setup Ruby
-        run: sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev&&sudo apt-get install -y ruby-full
-      
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+
       - name: Install dependencies
-        run: gem install jekyll&&gem install bundle&& bundle install
+        run: bundle exec rake&&gem install jekyll
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
